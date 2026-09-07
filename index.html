@@ -1,7 +1,205 @@
-<!doctype html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Στάφυλος Γη</title><style>body{margin:0;font-family:system-ui,sans-serif;background:#f5f1e8;color:#2b3022}header{padding:26px 7%}.hero{padding:90px 7%;background:#6d7544;color:white}.hero h1{font-size:clamp(44px,8vw,82px);max-width:850px}.hero p{font-size:20px;line-height:1.6;max-width:650px}.cta{display:inline-block;padding:14px 22px;background:#f0c86a;color:#252817;border-radius:999px;text-decoration:none;font-weight:700}.grid{padding:60px 7%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{background:white;padding:28px;border-radius:20px}.demo{font-size:12px;opacity:.65}footer{padding:40px 7%;background:#252a1d;color:white}</style><style>.visit-cta{padding:56px 24px;max-width:900px;margin:auto}.visit-cta div{display:flex;gap:12px;flex-wrap:wrap}.visit-cta a{margin-top:8px}.visit-cta h2{margin-bottom:12px}</style></head><body><header><strong>ΣΤΑΦΥΛΟΣ ΓΗ</strong></header><section class="hero"><div class="demo"></div><h1>Γεύση με ρίζες.</h1><p>Ένα καθαρό digital home για ένα δυνατό local brand — με έμφαση στην ταυτότητα, το μενού και την επίσκεψη.</p><a class="cta" href="tel:+302310205718">Call 2310 205718</a></section><section class="grid"><div class="card"><h2>Η εμπειρία</h2><p>Ιστορία, πιάτα και φιλοσοφία σε μία premium παρουσίαση.</p></div><div class="card"><h2>Διεύθυνση</h2><p>Apostolou Pavlou 24, Thessaloniki 546 34</p></div><div class="card"><h2>Local first</h2><p>Mobile-first, local SEO και ξεκάθαρα calls to action.</p></div></section><footer><strong>ΣΤΑΦΥΛΟΣ ΓΗ</strong><p>2310 205718</p><div class="demo"></div></footer>
-<section id="contact" style="padding:2rem 1.25rem;max-width:900px;margin:0 auto">
-  <h2>Επικοινωνία</h2>
-  <p><strong>Τηλέφωνο:</strong> <a href="tel:+302310205718">+30 231 020 5718</a></p>
-  <p><strong>Email:</strong> <a href="mailto:izkougioumtzis@gmail.com">izkougioumtzis@gmail.com</a></p>
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Στάφυλος Γη</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    --clr-bg:#f5f1e8;
+    --clr-primary:#2b3022;
+    --clr-olive:#6d7544;
+    --clr-gold:#f0c86a;
+    --clr-white:#ffffff;
+    --font-sans:'Montserrat',system-ui,sans-serif;
+    --font-serif:'Playfair Display',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{font-family:var(--font-sans);color:var(--clr-primary);background:var(--clr-bg);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+body{line-height:1.6;}
+header{
+    background:var(--clr-primary);
+    color:var(--clr-white);
+    padding:1rem 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+header .logo{font-family:var(--font-serif);font-size:1.5rem;font-weight:700;}
+nav ul{list-style:none;display:flex;gap:1.5rem;}
+nav a{font-weight:600;transition:color .2s;}
+nav a:hover,nav a:focus{color:var(--clr-gold);}
+nav .menu-toggle{display:none;background:none;border:none;color:var(--clr-white);font-size:1.5rem;cursor:pointer;}
+.hero{
+    background:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color:var(--clr-white);
+    text-align:center;
+    padding:6rem 5% 4rem;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+    z-index:-1;
+}
+.hero h1{
+    font-family:var(--font-serif);
+    font-size:clamp(2.5rem,8vw,5rem);
+    margin-bottom:.5rem;
+}
+.hero p{
+    font-size:1.125rem;
+    max-width:45ch;
+    margin:auto;
+}
+.hero .cta{
+    display:inline-block;
+    margin-top:1.5rem;
+    padding:.75rem 1.5rem;
+    background:var(--clr-gold);
+    color:var(--clr-primary);
+    border-radius:999px;
+    font-weight:600;
+}
+section{padding:4rem 5%;}
+section h2{
+    font-family:var(--font-serif);
+    font-size:2rem;
+    margin-bottom:1rem;
+    text-align:center;
+}
+.grid{
+    display:grid;
+    gap:1.5rem;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.card{
+    background:var(--clr-white);
+    border-radius:1rem;
+    padding:1.5rem;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.card h3{
+    font-family:var(--font-serif);
+    font-size:1.5rem;
+    margin-bottom:.5rem;
+}
+.visit-cta{
+    background:var(--clr-olive);
+    color:var(--clr-white);
+    border-radius:1rem;
+    max-width:900px;
+    margin:auto;
+    padding:2rem;
+    text-align:center;
+}
+.visit-cta a{
+    display:inline-block;
+    margin-top:.75rem;
+    padding:.5rem 1rem;
+    background:var(--clr-gold);
+    color:var(--clr-primary);
+    border-radius:.5rem;
+    font-weight:600;
+}
+footer{
+    background:var(--clr-primary);
+    color:var(--clr-white);
+    text-align:center;
+    padding:2rem 5%;
+}
+footer p{margin:0.5rem 0;}
+@media (max-width:768px){
+    nav ul{flex-direction:column;background:var(--clr-primary);position:absolute;top:100%;right:0;width:200px;padding:1rem;display:none;}
+    nav ul.show{display:flex;}
+    nav .menu-toggle{display:block;}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Μετάβαση στο κύριο περιεχόμενο</a>
+<header>
+    <div class="logo">ΣΤΑΦΥΛΟΣ ΓΗ</div>
+    <nav aria-label="Κύρια πλοήγηση">
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Άνοιγμα μενού">☰</button>
+        <ul id="primary-menu">
+            <li><a href="#about">Η εμπειρία</a></li>
+            <li><a href="#location">Διεύθυνση</a></li>
+            <li><a href="#contact">Επικοινωνία</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main">
+<section class="hero">
+    <h1>Γεύση με ρίζες.</h1>
+    <p>Ένα καθαρό digital home για ένα δυνατό local brand — με έμφαση στην ταυτότητα, το μενού και την επίσκεψη.</p>
+    <a class="cta" href="tel:+302310205718">Call 2310 205718</a>
 </section>
-<section id="visit" class="visit-cta"><h2>Μια στάση που αξίζει.</h2><p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δες το σημείο και έλα να μας γνωρίσεις.</p><div><a href="https://maps.google.com/?cid=355830012217030769" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a><a href="tel:2310205718">Κάλεσε · 231 020 5718</a></div></section></body></html>
+
+<section id="about" class="grid">
+    <div class="card">
+        <h3>Η εμπειρία</h3>
+        <p>Ιστορία, πιάτα και φιλοσοφία σε μία premium παρουσίαση.</p>
+    </div>
+    <div class="card">
+        <h3>Local first</h3>
+        <p>Mobile‑first, local SEO και ξεκάθαρα calls to action.</p>
+    </div>
+</section>
+
+<section id="location" class="grid">
+    <div class="card">
+        <h3>Διεύθυνση</h3>
+        <p>Apostolou Pavlou 24, Thessaloniki 546 34</p>
+    </div>
+    <div class="card">
+        <h3>Πώς να μας βρείτε</h3>
+        <p>
+            <a href="https://maps.google.com/?cid=355830012217030769" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a>
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="grid">
+    <div class="card">
+        <h3>Τηλέφωνο</h3>
+        <p><a href="tel:+302310205718">+30 231 020 5718</a></p>
+    </div>
+    <div class="card">
+        <h3>Email</h3>
+        <p><a href="mailto:izkougioumtzis@gmail.com">izkougioumtzis@gmail.com</a></p>
+    </div>
+</section>
+
+<section class="visit-cta">
+    <h2>Μια στάση που αξίζει.</h2>
+    <p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δες το σημείο και έλα να μας γνωρίσεις.</p>
+    <a href="https://maps.google.com/?cid=355830012217030769" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a>
+    <a href="tel:+302310205718">Κάλεσε · 231 020 5718</a>
+</section>
+</main>
+
+<footer>
+    <strong>ΣΤΑΦΥΛΟΣ ΓΗ</strong>
+    <p>+30 231 020 5718</p>
+    <p>Απόλυτη ελληνική γεύση στο κέντρο της Θεσσαλονίκης.</p>
+</footer>
+
+<script>
+const toggleBtn=document.querySelector('.menu-toggle');
+const menu=document.getElementById('primary-menu');
+toggleBtn.addEventListener('click',()=>{
+    const expanded=toggleBtn.getAttribute('aria-expanded')==='true';
+    toggleBtn.setAttribute('aria-expanded',!expanded);
+    menu.classList.toggle('show');
+});
+</script>
+</body>
+</html>

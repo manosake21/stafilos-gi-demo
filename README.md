@@ -1,11 +1,8 @@
 # Στάφυλος Γη
 
-Website for Στάφυλος Γη in Thessaloniki.
+Ιστοσελίδα για τον Στάφυλο Γη στη Θεσσαλονίκη.
 
-## Contact
-- Address: Apostolou Pavlou 24, Thessaloniki 546 34, Greece
-- Phone: 231 020 5718
+## Στοιχεία επικοινωνίας
+- Διεύθυνση: Αποστόλου Παύλου 24, Θεσσαλονίκη 546 34
+- Τηλέφωνο: 231 020 5718
 - Email: izkougioumtzis@gmail.com
-
-## Website
-https://stafilos-gi-demo.vercel.app

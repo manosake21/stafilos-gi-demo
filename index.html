@@ -3,202 +3,299 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Στάφυλος Γη</title>
+<title>Στάφυλος Γη – Ελληνική γεύση στο κέντρο της Θεσσαλονίκης</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-    --clr-bg:#f5f1e8;
-    --clr-primary:#2b3022;
-    --clr-olive:#6d7544;
-    --clr-gold:#f0c86a;
-    --clr-white:#ffffff;
-    --font-sans:'Montserrat',system-ui,sans-serif;
-    --font-serif:'Playfair Display',serif;
+  --clr-bg:#faf8f3;
+  --clr-primary:#2b3022;
+  --clr-olive:#6d7544;
+  --clr-gold:#d4a72c;
+  --clr-white:#ffffff;
+  --font-sans:'Montserrat',system-ui,sans-serif;
+  --font-serif:'Playfair Display',serif;
+  --radius:0.75rem;
+  --transition:.2s ease;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-html{font-family:var(--font-sans);color:var(--clr-primary);background:var(--clr-bg);}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
+*,
+*::before,
+*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-family:var(--font-sans);color:var(--clr-primary);background:var(--clr-bg);scroll-behavior:smooth;}
 body{line-height:1.6;}
-header{
-    background:var(--clr-primary);
-    color:var(--clr-white);
-    padding:1rem 5%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+a{color:inherit;text-decoration:none;}
+a:focus-visible{outline:2px solid var(--clr-gold);outline-offset:2px;}
+button{font:inherit;background:none;border:none;color:inherit;cursor:pointer;}
+button:focus-visible{outline:2px solid var(--clr-gold);outline-offset:2px;}
+img{max-width:100%;display:block;}
+svg{display:block;}
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
-header .logo{font-family:var(--font-serif);font-size:1.5rem;font-weight:700;}
-nav ul{list-style:none;display:flex;gap:1.5rem;}
-nav a{font-weight:600;transition:color .2s;}
-nav a:hover,nav a:focus{color:var(--clr-gold);}
-nav .menu-toggle{display:none;background:none;border:none;color:var(--clr-white);font-size:1.5rem;cursor:pointer;}
+.skip-link:focus-visible{
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  padding:.5rem 1rem;
+  background:var(--clr-gold);
+  color:var(--clr-primary);
+  z-index:1000;
+}
+header{
+  background:var(--clr-primary);
+  color:var(--clr-white);
+  padding:1rem clamp(1rem,5vw,3rem);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-family:var(--font-serif);
+  font-size:1.5rem;
+  font-weight:700;
+}
+nav{
+  position:relative;
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:1.5rem;
+}
+nav a{
+  font-weight:600;
+  transition:color var(--transition);
+}
+nav a:hover,
+nav a:focus-visible{color:var(--clr-gold);}
+.menu-toggle{
+  display:none;
+  font-size:1.5rem;
+  color:var(--clr-white);
+}
+@media (max-width:768px){
+  .menu-toggle{display:block;}
+  nav ul{
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    right:0;
+    background:var(--clr-primary);
+    width:200px;
+    padding:1rem;
+    display:none;
+  }
+  nav ul.show{display:flex;}
+}
 .hero{
-    background:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-    color:var(--clr-white);
-    text-align:center;
-    padding:6rem 5% 4rem;
+  position:relative;
+  color:var(--clr-white);
+  text-align:center;
+  padding:6rem 1rem 4rem;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 30% 30%,rgba(255,255,255,0.15),transparent 40%),
+    radial-gradient(circle at 70% 70%,rgba(255,255,255,0.15),transparent 40%),
+    var(--clr-olive);
+  z-index:-2;
 }
 .hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.4);
-    z-index:-1;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22><path d=%22M5 10c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5-5-2.24-5-5z%22 fill=%22%23d4a72c%22 opacity=%220.2%22/></svg>') repeat;
+  opacity:0.4;
+  z-index:-1;
 }
 .hero h1{
-    font-family:var(--font-serif);
-    font-size:clamp(2.5rem,8vw,5rem);
-    margin-bottom:.5rem;
+  font-family:var(--font-serif);
+  font-size:clamp(2.5rem,10vw,5rem);
+  margin-bottom:.5rem;
 }
 .hero p{
-    font-size:1.125rem;
-    max-width:45ch;
-    margin:auto;
+  font-size:1.125rem;
+  max-width:45ch;
+  margin:auto;
 }
-.hero .cta{
-    display:inline-block;
-    margin-top:1.5rem;
-    padding:.75rem 1.5rem;
-    background:var(--clr-gold);
-    color:var(--clr-primary);
-    border-radius:999px;
-    font-weight:600;
+.cta{
+  display:inline-block;
+  margin-top:1.5rem;
+  padding:.75rem 1.5rem;
+  background:var(--clr-gold);
+  color:var(--clr-primary);
+  border-radius:999px;
+  font-weight:600;
+  transition:transform var(--transition);
 }
-section{padding:4rem 5%;}
+.cta:hover,
+.cta:focus-visible{
+  transform:scale(1.05);
+}
+section{
+  padding:4rem clamp(1rem,5vw,3rem);
+}
 section h2{
-    font-family:var(--font-serif);
-    font-size:2rem;
-    margin-bottom:1rem;
-    text-align:center;
+  font-family:var(--font-serif);
+  font-size:2rem;
+  margin-bottom:1rem;
+  text-align:center;
 }
 .grid{
-    display:grid;
-    gap:1.5rem;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  display:grid;
+  gap:1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 .card{
-    background:var(--clr-white);
-    border-radius:1rem;
-    padding:1.5rem;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  background:var(--clr-white);
+  border-radius:var(--radius);
+  padding:1.5rem;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+  transition:transform var(--transition);
+}
+.card:hover,
+.card:focus-within{
+  transform:translateY(-4px);
 }
 .card h3{
-    font-family:var(--font-serif);
-    font-size:1.5rem;
-    margin-bottom:.5rem;
+  font-family:var(--font-serif);
+  font-size:1.5rem;
+  margin-bottom:.5rem;
 }
-.visit-cta{
-    background:var(--clr-olive);
-    color:var(--clr-white);
-    border-radius:1rem;
-    max-width:900px;
-    margin:auto;
-    padding:2rem;
-    text-align:center;
+.visit{
+  background:var(--clr-olive);
+  color:var(--clr-white);
+  border-radius:var(--radius);
+  max-width:900px;
+  margin:auto;
+  padding:2rem;
+  text-align:center;
 }
-.visit-cta a{
-    display:inline-block;
-    margin-top:.75rem;
-    padding:.5rem 1rem;
-    background:var(--clr-gold);
-    color:var(--clr-primary);
-    border-radius:.5rem;
-    font-weight:600;
+.visit a{
+  display:inline-block;
+  margin:.75rem .5rem 0;
+  padding:.5rem 1rem;
+  background:var(--clr-gold);
+  color:var(--clr-primary);
+  border-radius:.5rem;
+  font-weight:600;
+  transition:background var(--transition);
 }
+.visit a:hover,
+.visit a:focus-visible{background:#c89425;}
 footer{
-    background:var(--clr-primary);
-    color:var(--clr-white);
-    text-align:center;
-    padding:2rem 5%;
+  background:var(--clr-primary);
+  color:var(--clr-white);
+  text-align:center;
+  padding:2rem clamp(1rem,5vw,3rem);
 }
-footer p{margin:0.5rem 0;}
-@media (max-width:768px){
-    nav ul{flex-direction:column;background:var(--clr-primary);position:absolute;top:100%;right:0;width:200px;padding:1rem;display:none;}
-    nav ul.show{display:flex;}
-    nav .menu-toggle{display:block;}
+footer strong{
+  display:block;
+  font-size:1.25rem;
+  margin-bottom:.5rem;
+}
+@media (prefers-reduced-motion:reduce){
+  *, *::before, *::after{transition:none !important;}
 }
 </style>
 </head>
 <body>
-<a href="#main" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Μετάβαση στο κύριο περιεχόμενο</a>
+<a href="#main" class="skip-link">Μετάβαση στο κύριο περιεχόμενο</a>
+
 <header>
-    <div class="logo">ΣΤΑΦΥΛΟΣ ΓΗ</div>
-    <nav aria-label="Κύρια πλοήγηση">
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Άνοιγμα μενού">☰</button>
-        <ul id="primary-menu">
-            <li><a href="#about">Η εμπειρία</a></li>
-            <li><a href="#location">Διεύθυνση</a></li>
-            <li><a href="#contact">Επικοινωνία</a></li>
-        </ul>
-    </nav>
+  <div class="logo">ΣΤΑΦΥΛΟΣ ΓΗ</div>
+  <nav aria-label="Κύρια πλοήγηση">
+    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Άνοιγμα μενού">☰</button>
+    <ul id="primary-menu">
+      <li><a href="#about">Η εμπειρία</a></li>
+      <li><a href="#location">Διεύθυνση</a></li>
+      <li><a href="#contact">Επικοινωνία</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main id="main">
-<section class="hero">
-    <h1>Γεύση με ρίζες.</h1>
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Γεύση με ρίζες.</h1>
     <p>Ένα καθαρό digital home για ένα δυνατό local brand — με έμφαση στην ταυτότητα, το μενού και την επίσκεψη.</p>
-    <a class="cta" href="tel:+302310205718">Call 2310 205718</a>
-</section>
+    <a class="cta" href="tel:+302310205718">Κλήση 2310 205718</a>
+  </section>
 
-<section id="about" class="grid">
-    <div class="card">
-        <h3>Η εμπειρία</h3>
-        <p>Ιστορία, πιάτα και φιλοσοφία σε μία premium παρουσίαση.</p>
-    </div>
-    <div class="card">
+  <section id="about">
+    <h2>Η εμπειρία</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Ιστορία & Φιλοσοφία</h3>
+        <p>Μια παράδοση που συνδυάζει τοπικά υλικά με σύγχρονη ερμηνεία, δημιουργώντας μοναδικές γεύσεις.</p>
+      </article>
+      <article class="card">
         <h3>Local first</h3>
-        <p>Mobile‑first, local SEO και ξεκάθαρα calls to action.</p>
+        <p>Mobile‑first σχεδιασμός, τοπικό SEO και ξεκάθαρα calls‑to‑action για άμεση επαφή.</p>
+      </article>
     </div>
-</section>
+  </section>
 
-<section id="location" class="grid">
-    <div class="card">
-        <h3>Διεύθυνση</h3>
+  <section id="location">
+    <h2>Διεύθυνση</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Που βρισκόμαστε</h3>
         <p>Apostolou Pavlou 24, Thessaloniki 546 34</p>
-    </div>
-    <div class="card">
+      </article>
+      <article class="card">
         <h3>Πώς να μας βρείτε</h3>
-        <p>
-            <a href="https://maps.google.com/?cid=355830012217030769" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a>
-        </p>
+        <p><a href="https://maps.google.com/?cid=355830012217030769" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a></p>
+      </article>
     </div>
-</section>
+  </section>
 
-<section id="contact" class="grid">
-    <div class="card">
+  <section id="contact">
+    <h2>Επικοινωνία</h2>
+    <div class="grid">
+      <article class="card">
         <h3>Τηλέφωνο</h3>
         <p><a href="tel:+302310205718">+30 231 020 5718</a></p>
-    </div>
-    <div class="card">
+      </article>
+      <article class="card">
         <h3>Email</h3>
         <p><a href="mailto:izkougioumtzis@gmail.com">izkougioumtzis@gmail.com</a></p>
+      </article>
     </div>
-</section>
+  </section>
 
-<section class="visit-cta">
+  <section class="visit">
     <h2>Μια στάση που αξίζει.</h2>
     <p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δες το σημείο και έλα να μας γνωρίσεις.</p>
     <a href="https://maps.google.com/?cid=355830012217030769" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a>
     <a href="tel:+302310205718">Κάλεσε · 231 020 5718</a>
-</section>
+  </section>
 </main>
 
 <footer>
-    <strong>ΣΤΑΦΥΛΟΣ ΓΗ</strong>
-    <p>+30 231 020 5718</p>
-    <p>Απόλυτη ελληνική γεύση στο κέντρο της Θεσσαλονίκης.</p>
+  <strong>ΣΤΑΦΥΛΟΣ ΓΗ</strong>
+  <p>+30 231 020 5718</p>
+  <p>Απόλυτη ελληνική γεύση στο κέντρο της Θεσσαλονίκης.</p>
 </footer>
 
 <script>
-const toggleBtn=document.querySelector('.menu-toggle');
-const menu=document.getElementById('primary-menu');
-toggleBtn.addEventListener('click',()=>{
-    const expanded=toggleBtn.getAttribute('aria-expanded')==='true';
-    toggleBtn.setAttribute('aria-expanded',!expanded);
-    menu.classList.toggle('show');
+const toggleBtn = document.querySelector('.menu-toggle');
+const menu = document.getElementById('primary-menu');
+
+toggleBtn.addEventListener('click', () => {
+  const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+  toggleBtn.setAttribute('aria-expanded', String(!expanded));
+  menu.classList.toggle('show');
 });
 </script>
 </body>
